@@ -17,6 +17,7 @@ const Title = styled.div`
   font-size: 38px;
   font-weight: 600;
   opacity: 0.6;
+  text-shadow: 0px 1px 2px grey;
 `;
 
 const Wrapper = styled.div`
@@ -29,7 +30,6 @@ const Menu = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `;
 
