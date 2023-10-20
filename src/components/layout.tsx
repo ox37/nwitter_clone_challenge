@@ -22,7 +22,7 @@ const Title = styled.div`
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 5fr 1fr;
   gap: 20px;
 `;
 
@@ -44,6 +44,19 @@ const MenuItem = styled.div`
   }
 `;
 
+const Sidebar = styled.div``;
+
+const SearchInput = styled.div`
+  padding: 8px 0px;
+  color: #3978ff;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid #3978ff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+`;
+
 export default function Layout() {
   const navigate = useNavigate();
 
@@ -57,7 +70,7 @@ export default function Layout() {
 
   return (
     <Root>
-      <Title>Family Story</Title>
+      <Title>family story</Title>
       <Wrapper>
         <Menu>
           <Link to="/">
@@ -122,6 +135,9 @@ export default function Layout() {
           </MenuItem>
         </Menu>
         <Outlet />
+        <Sidebar>
+          <SearchInput>Search</SearchInput>
+        </Sidebar>
       </Wrapper>
     </Root>
   );

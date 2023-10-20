@@ -43,12 +43,26 @@ const DeleteButton = styled.button`
   opacity: 0.8;
   font-weight: 600;
   border: 0;
-  font-size: 12px;
+  font-size: 10px;
   padding: 5px 10px;
   text-transform: uppercase;
   border-radius: 5px;
   cursor: pointer;
-  width: 20%;
+  width: 70px;
+`;
+
+const EditButton = styled.button`
+  background-color: #214799;
+  color: white;
+  opacity: 0.8;
+  font-weight: 600;
+  border: 0;
+  font-size: 10px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 50px;
 `;
 
 const EmptyPhoto = styled.img`
@@ -58,7 +72,26 @@ const EmptyPhoto = styled.img`
   opacity: 0;
 `;
 
-export default function Tweet({ username, photo, tweet, userId, id }: ITweet) {
+const Timestamp = styled.div`
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.5;
+  padding-bottom: 15px;
+`;
+
+const ToolBox = styled.div`
+  display: flex;
+  gap: 15px;
+`;
+
+export default function Tweet({
+  username,
+  photo,
+  tweet,
+  userId,
+  id,
+  createdAt,
+}: ITweet) {
   const user = auth.currentUser;
 
   const onDelete = async () => {
@@ -77,14 +110,28 @@ export default function Tweet({ username, photo, tweet, userId, id }: ITweet) {
     // }
   };
 
+  const onEdit = async () => {};
+
+  const date: Date = new Date(createdAt);
+  const displayDate = date.toLocaleDateString();
+  const displayTime = date.toLocaleTimeString();
+
   return (
     <Wrapper>
       <Column>
+        <Timestamp>
+          {displayDate} {displayTime}
+        </Timestamp>
         <Username>{username}</Username>
         <Payload>{tweet}</Payload>
-        {user?.uid === userId ? (
-          <DeleteButton onClick={onDelete}>delete</DeleteButton>
-        ) : null}
+        <ToolBox>
+          {user?.uid === userId ? (
+            <DeleteButton onClick={onDelete}>delete</DeleteButton>
+          ) : null}
+          {user?.uid === userId ? (
+            <EditButton onClick={onEdit}>edit</EditButton>
+          ) : null}
+        </ToolBox>
       </Column>
       {photo ? (
         <Column>

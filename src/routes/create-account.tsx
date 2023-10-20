@@ -66,7 +66,7 @@ export default function CreateAccount() {
 
   return (
     <AuthWrapper>
-      <AuthTitle>Family Story</AuthTitle>
+      <AuthTitle>family story</AuthTitle>
       <AuthSignUpTitle>Sign up</AuthSignUpTitle>
       <AuthForm onSubmit={onSubmit}>
         <AuthInput
