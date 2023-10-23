@@ -5,8 +5,8 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { deleteObject, ref } from "firebase/storage";
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 5fr 1fr;
+  /* display: grid;
+  grid-template-columns: 5fr 1fr; */
   padding: 20px;
   border: 1px solid #3978ff;
   border-radius: 15px;
@@ -20,10 +20,11 @@ const Column = styled.div`
 `;
 
 const Photo = styled.img`
-  width: 200px;
-  height: 100px;
+  width: 100%;
+  /* height: 50%; */
   border-radius: 15px;
   object-fit: contain;
+  padding-bottom: 10px;
 `;
 
 const Username = styled.span`
@@ -66,8 +67,8 @@ const EditButton = styled.button`
 `;
 
 const EmptyPhoto = styled.img`
-  width: 100px;
-  height: 100px;
+  /* width: 100px;
+  height: 100px; */
   border: 0px;
   opacity: 0;
 `;
@@ -82,6 +83,7 @@ const Timestamp = styled.div`
 const ToolBox = styled.div`
   display: flex;
   gap: 15px;
+  padding-top: 10px;
 `;
 
 export default function Tweet({
@@ -122,6 +124,15 @@ export default function Tweet({
         <Timestamp>
           {displayDate} {displayTime}
         </Timestamp>
+        {photo ? (
+          <Column>
+            <Photo src={photo} />
+          </Column>
+        ) : (
+          <EmptyPhoto />
+        )}
+      </Column>
+      <Column>
         <Username>{username}</Username>
         <Payload>{tweet}</Payload>
         <ToolBox>
@@ -133,13 +144,6 @@ export default function Tweet({
           ) : null}
         </ToolBox>
       </Column>
-      {photo ? (
-        <Column>
-          <Photo src={photo} />
-        </Column>
-      ) : (
-        <EmptyPhoto />
-      )}
     </Wrapper>
   );
 }
