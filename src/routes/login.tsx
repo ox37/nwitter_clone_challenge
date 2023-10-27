@@ -53,7 +53,7 @@ export default function Login() {
 
   return (
     <AuthWrapper>
-      <AuthTitle>family story</AuthTitle>
+      <AuthTitle>Family Story</AuthTitle>
       <AuthLoginTitle>Log in</AuthLoginTitle>
       <AuthForm onSubmit={onSubmit}>
         <AuthInput

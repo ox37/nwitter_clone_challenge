@@ -47,7 +47,7 @@ const AvatarInput = styled.input`
 `;
 
 const Name = styled.span`
-  font-size: 20px;
+  font-size: 16px;
   color: #3978ff;
 `;
 

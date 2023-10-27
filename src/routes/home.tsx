@@ -4,9 +4,9 @@ import Timeline from "../components/timeline";
 
 const Wrapper = styled.div`
   display: grid;
-  gap: 50px;
+  gap: 30px;
   overflow-y: scroll;
-  grid-template-rows: 1fr 5fr;
+  /* grid-template-rows: 1fr 8fr; */
 
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */

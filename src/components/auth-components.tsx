@@ -10,10 +10,16 @@ export const AuthWrapper = styled.div`
 `;
 
 export const AuthTitle = styled.h1`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0px 40px 0px;
+  color: #3978ff;
   font-size: 38px;
   font-weight: 600;
   opacity: 0.6;
-  color: #3978ff;
+  text-shadow: 0px 1px 2px grey;
+  font-style: italic;
 `;
 
 export const AuthLoginTitle = styled.h1`
